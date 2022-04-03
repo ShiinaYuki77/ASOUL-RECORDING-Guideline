@@ -1,0 +1,693 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>index</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='a-soul-录播组协作指引'><span>A-SOUL 录播组协作指引</span></h1><p><span>	</span><em><span>最后一次更新：2022/04/03</span></em></p><p><span>	</span><em><span>更新内容：第一次版本大改，尚处于尝试阶段，恳请各位理解。</span></em></p><hr /><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n0"><a class="md-toc-inner" href="#a-soul-录播组协作指引">A-SOUL 录播组协作指引</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n4"><a class="md-toc-inner" href="#0-前言">0 前言</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n7"><a class="md-toc-inner" href="#授权">授权</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n10"><a class="md-toc-inner" href="#1-协同工作须知">1 协同工作须知</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n12"><a class="md-toc-inner" href="#沟通与分工">沟通与分工</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n64"><a class="md-toc-inner" href="#录播注意事项">录播注意事项</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n70"><a class="md-toc-inner" href="#切片注意事项">切片注意事项</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n80"><a class="md-toc-inner" href="#账号使用事项">账号使用事项</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n88"><a class="md-toc-inner" href="#2-特定工作引导">2 特定工作引导</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n89"><a class="md-toc-inner" href="#录播">录播</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n91"><a class="md-toc-inner" href="#抖音源">抖音源</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n113"><a class="md-toc-inner" href="#使用-potplayer">使用 PotPlayer</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n142"><a class="md-toc-inner" href="#使用-ffmpeg">使用 FFMpeg</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n150"><a class="md-toc-inner" href="#哔哩哔哩源">哔哩哔哩源</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n152"><a class="md-toc-inner" href="#录播工具比较">录播工具比较</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n195"><a class="md-toc-inner" href="#哔哩哔哩录播姬">哔哩哔哩录播姬</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n227"><a class="md-toc-inner" href="#acgnhikiblrec">acgnhiki/blrec</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n229"><a class="md-toc-inner" href="#绿色版配置">绿色版配置</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n238"><a class="md-toc-inner" href="#服务器非-windows-下的设置">服务器/非 Windows 下的设置</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n240"><a class="md-toc-inner" href="#参考的-blrec-参数设定">参考的 blrec 参数设定</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n243"><a class="md-toc-inner" href="#cookies-提取与设定">Cookies 提取与设定</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n261"><a class="md-toc-inner" href="#压制">压制</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n262"><a class="md-toc-inner" href="#使用-handbrake">使用 HandBrake</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n265"><a class="md-toc-inner" href="#配置预设">配置预设</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n266"><a class="md-toc-inner" href="#导入成品预设">导入成品预设</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n274"><a class="md-toc-inner" href="#手动配置预设">手动配置预设</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n354"><a class="md-toc-inner" href="#弹幕转换">弹幕转换</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n355"><a class="md-toc-inner" href="#使用-批量转换脚本基于-danmakufactory">使用 批量转换脚本（基于 DanmakuFactory)</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n357"><a class="md-toc-inner" href="#使用-danmakufactory-gui">使用 DanmakuFactory GUI</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n369"><a class="md-toc-inner" href="#弹幕的再处理">弹幕的再处理</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n370"><a class="md-toc-inner" href="#文本编辑器大法">文本编辑器大法</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n373"><a class="md-toc-inner" href="#aegisub-修改法">AegiSub 修改法</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n375"><a class="md-toc-inner" href="#切片">切片</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n376"><a class="md-toc-inner" href="#歌舞切片">歌舞切片</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n401"><a class="md-toc-inner" href="#一般切片">一般切片</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n404"><a class="md-toc-inner" href="#哔哩哔哩时间轴">哔哩哔哩时间轴</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n415"><a class="md-toc-inner" href="#3-特殊情况处置引导">3 特殊情况处置引导</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n416"><a class="md-toc-inner" href="#撞车">撞车</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n430"><a class="md-toc-inner" href="#修改稿件信息">修改稿件信息</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n432"><a class="md-toc-inner" href="#画面---分辨率提升">画面 - 分辨率提升</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n449"><a class="md-toc-inner" href="#画质---帧率提升">画质 - 帧率提升</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n453"><a class="md-toc-inner" href="#音频---简单修正">音频 - 简单修正</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n456"><a class="md-toc-inner" href="#标准化">标准化</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n458"><a class="md-toc-inner" href="#中置声道提取人声增强）">中置声道提取（人声增强）</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n460"><a class="md-toc-inner" href="#降噪">降噪</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n462"><a class="md-toc-inner" href="#4-附录">4 附录</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n463"><a class="md-toc-inner" href="#成员基础信息">成员基础信息</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n494"><a class="md-toc-inner" href="#handbrake-预设">HandBrake 预设</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n508"><a class="md-toc-inner" href="#一些有用的资源链接">一些有用的资源链接</a></span></p></div><h2 id='0-前言'><span>0 前言</span></h2><p><span>	</span><span>感谢您参与 A-SOUL 录播姬的协同工作流程，请您在参与工作流程之前按需仔细阅读本文档。这是一份内部工作指引文档，尽管如此，您仍然可以以非商业的目的及无授权的形式任意取用。</span></p><p><span>	</span><span>如果文章存在问题，或您希望改进，您可以在本仓库提交 Pull Request / Issue，或者联络群主及相关负责人。</span></p><h3 id='授权'><span>授权</span></h3><p><span>	</span><span>本组使用、引用的图片/工具/开源项目之 License 以相关作者/组织声明为准，并受到相关条款约束；原创内容以 WTFPL 授权给所有用户。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.58333px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Version 2, December 2004</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> Copyright (C) 2004 Sam Hocevar &lt;sam@hocevar.net&gt;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> Everyone is permitted to copy and distribute verbatim or modified</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> copies of this license document, and changing it is allowed as long</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> as the name is changed.</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  0. You just DO WHAT THE FUCK YOU WANT TO.</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 301px;"></div><div class="CodeMirror-gutters" style="display: none; height: 301px;"></div></div></div></pre><h2 id='1-协同工作须知'><span>1 协同工作须知</span></h2><p><span>	</span><span>为保证沟通与工作顺利，投入工作前，需要您知悉如下作业须知：</span></p><h3 id='沟通与分工'><span>沟通与分工</span></h3><blockquote><p><span>太长不看版：</span></p><ul><li><span>保持良性沟通 </span></li><li><span>出问题及时报备</span></li><li><span>协调好节奏，不要抢活或架空某个任务</span></li><li><span>能者多劳，会者不难</span>✋</li></ul></blockquote><ul><li><p><span>请 </span><strong><span>尽量不要</span></strong><span> 同时操作同一个稿件，以防止不能保存、稿件重复、触发 B 站风控的情况产生。</span></p></li><li><p><span>工作群长期处于禁言状态，仅在工作流程准备、工作流程结束两个阶段之间允许发言。</span></p><ul><li><p><span>尽管如此，也请您及时和相关负责人尽早建立联系，并在遇到无法完成任务的情况时及时沟通。</span></p></li><li><p><span>如果您遇到了无法完成手头工作的情况，请及时和群主或其他群有联系交替。</span></p><p><span>同时，如果您的计算条件、网络条件、可支配时间相对充足，也欢迎您申报应急负责人。</span></p><hr /><figure><table><thead><tr><th><span>分工</span></th><th><span>负责人</span></th></tr></thead><tbody><tr><td><span>弹幕录播</span></td><td><span>椎名雪 / 契卡 / 堪折</span></td></tr><tr><td><span>封面</span></td><td><span>契卡</span></td></tr><tr><td><span>团播</span></td><td><span>五十八方</span></td></tr><tr><td><span>单播</span></td><td><span>Choa</span></td></tr><tr><td><span>切片</span></td><td><span>贝极星汉灿烂 二刀流歌舞节目 自行投稿</span></td></tr><tr><td><span>切片</span></td><td><span>贝贝笨极星 二刀流 提交到群组</span></td></tr><tr><td><span>切片</span></td><td><span>落神 处理节目爆点和小包袱 自行投稿</span></td></tr><tr><td><span>换源</span></td><td><span>煎饼静子 即时歌舞切片并换源</span></td></tr><tr><td><span>应急处置</span></td><td><span>椎名雪 / 贝极星汉灿烂 根据当前任务，尽可能处置退回锁定</span></td></tr></tbody></table></figure></li></ul></li></ul><h3 id='录播注意事项'><span>录播注意事项</span></h3><ul><li><span>尽量不要过早停止录播，预防回马枪丢录</span></li><li><span>尽可能始终保持你的录播机运行——如果你的网络不按量计费且条件较好。</span></li></ul><h3 id='切片注意事项'><span>切片注意事项</span></h3><ul><li><span>二刀流时尽可能流出足够的提前量</span></li><li><span>请参考附录的 ”标准标题&amp;简介模板“</span></li><li><span>精简需保证时效，尽可能在两天内的直播中切片，避免零散投稿。</span><br><span>如果质量拿不准可以发到群里让大家检查。尽量避免摆烂切片，宁缺毋滥。</span></li><li><span>切片者如无账号权限，则发到群里告知有权限的组员操作</span></li></ul><h3 id='账号使用事项'><span>账号使用事项</span></h3><ul><li><span>登录账号请使用 Chrome 的多用户特性，或 FireFox 的 用户容器 特性（嫌麻烦可以使用独立的浏览器），将组号独立储存在单独的会话中，尽量不要退出或清除浏览器数据。</span></li><li><span>提及的二创转发请尽可能符合大众审美，不要过于非主流</span><del><span>畜生</span></del><span>引起不适，亦需要把控转发频率，以免打扰粉丝。</span></li><li><span>固定的组号权限不转让，登录尽可能使用邮箱密码。触发风控及时联系组长。</span></li></ul><h2 id='2-特定工作引导'><span>2 特定工作引导</span></h2><h3 id='录播'><span>录播</span></h3><p><span>	</span><span>这一部分将阐述两个平台的录播方式，并提供相关工具的下载指导。</span></p><h4 id='抖音源'><span>抖音源</span></h4><blockquote><p><span>本节引述自：</span><a href='[录播.md · 志摩凛/asoul - Gitee.com](https://gitee.com/djj45/asoul/blob/master/录播.md#potplayer录播参考豆瓣帖子)'><span>djj45@Gitee/asoul</span></a><span>，并推荐使用了 kioshi.cc 的公共服务。</span></p><p><span>对原作者的整理及服务提供者表示感谢。</span></p><hr /><p><span>您需要准备：</span></p><ul><li><span>抖音 APP</span></li><li><span>浏览器</span></li><li><span>PotPlayer 或 FFMpeg 环境</span></li></ul></blockquote><ol start='' ><li><p><span>在抖音直播间开播后分享房间 URL 留用</span></p><p><img src="./images/recording/tiktok.jpg" alt="tiktok_mainpage" style="zoom:33%;" /></p></li><li><p><span>打开 </span><a href='https://d.koishi.cc/'><span>在线抓流工具</span></a><span>，复制 FLV 源的地址</span></p><p><img src="./images/recording/tiktok_extract.png" alt="tiktok_extract" style="zoom:50%;" /></p></li><li><p><span>参阅如下步骤：</span></p></li></ol><h5 id='使用-potplayer'><span>使用 PotPlayer</span></h5><blockquote><p><span>实际上，VLC 等能播放并录制 FLV 流的播放器都可以胜任这个任务，取决于你的偏好。</span></p><p><span>录制抖音对于网络质量和稳定性是考验，建议保持良好的网络环境。</span></p></blockquote><ol start='' ><li><p><span>打开软件，右键打开菜单，选择 </span><code>打开 -&gt; 打开链接...</code><span>，在弹出的窗口粘贴复制的 FLV 地址</span></p><p><img src="./images/recording/tiktok-potplayer1.png" alt="potplayer_1" style="zoom: 50%;" /><span> </span><img src="./images/recording/tiktok-potplayer2.png" alt="potplayer-2" style="zoom: 50%;" /></p></li><li><p><span>点击确定播放后，继续打开菜单，选择 </span><code>视频 -&gt; 视频录制 -&gt; 保存流...</code></p></li><li><p><span>选择存储格式为 FLV，按时间中止。</span></p><p><span>参考时间如下：</span></p><figure><table><thead><tr><th><span>直播情况</span></th><th><span>预计时间</span></th></tr></thead><tbody><tr><td><span>嘉然单播</span></td><td><span>≥ 50 分钟</span></td></tr><tr><td><span>其他人单播</span></td><td><span>≥ 60 分钟</span></td></tr><tr><td><span>团播</span></td><td><span>≥ 70 分钟</span></td></tr></tbody></table></figure><p><span>实际使用的时间可以更长——PotPlayer 在没有流输出后应该会正确的中断，不会继续写入。</span></p></li><li><p><span>直播结束后，右键打开菜单，选择 </span><code>视频 -&gt; 视频录制 -&gt; 保存流...</code><span>，点击 </span><code>停止</code></p></li></ol><h5 id='使用-ffmpeg'><span>使用 FFMpeg</span></h5><ol start='' ><li><p><span>请确认你正确配置了 FFMpeg 环境</span></p></li><li><p><span>复制、修改如下代码，粘贴到终端运行：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="shell"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="shell"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.58333px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">ffmpeg <span class="cm-attribute">-i</span> [直播 FLV 源链接] <span class="cm-attribute">-c</span> copy [文件名].flv</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>如果抖音的流中断或发生网络波动，你需要修改文件名（比如添加 </span><code>-1</code><span> 标记）重新运行命令。</span></p></li></ol><h4 id='哔哩哔哩源'><span>哔哩哔哩源</span></h4><p><span>	</span><span>本节包含两个工具的使用。</span></p><h5 id='录播工具比较'><span>录播工具比较</span></h5><figure><table><thead><tr><th>&nbsp;</th><th><span>录播姬</span></th><th><span>blrec</span></th><th><span>备注</span></th></tr></thead><tbody><tr><td><span>断流及碎片修正</span></td><td><span>×</span></td><td><span>√</span></td><td><span>blrec 的几乎无缝录播能且只能解决主播侧或直播线路投送时的断流，似乎对录制侧的问题无能为力。</span></td></tr><tr><td><span>基础录制（弹幕、高清流）</span></td><td><span>√</span></td><td><span>？</span></td><td><span>截至 2022/04/03 测试，blrec 似乎对于 B 站的高码率直播不能很好处理，已同开发者反馈。</span></td></tr><tr><td><span>自动切割（分时、分大小）</span></td><td><span>√</span></td><td><span>√</span></td><td><span>blrec 存在分割精度低、无法自定时间的现象。</span></td></tr><tr><td><span>对于收费/限定直播的录制能力</span></td><td><span>？</span></td><td><span>√</span></td><td><span>如有付费直播，需要设置购买了直播门票的账号 Cookies。</span><br><span>详细操作请参阅本文档的附录。</span></td></tr><tr><td><span>推送消息</span></td><td><span>？</span></td><td><span>√</span></td><td><span>尽管录播姬提供了 WebHook 能力，但上手难度大，需要自行对接服务；</span><br><span>blrec 内建 ServerChan 和 PushPlus 两个推送服务，也内建发送邮件推送和WebHook能力。</span></td></tr><tr><td><span>网页面板</span></td><td><span>×</span></td><td><span>√</span></td><td><span>录播姬开发者说 ”计划添加“ </span><del><span>没发就是咕咕</span></del><br><span>在此建议使用 VPS 或本地无头主机的用户暂时使用 blrec 项目。</span></td></tr><tr><td><span>跨系统能力</span></td><td><span>√</span></td><td><span>√</span></td><td><span>其中 blrec 在 *nix 环境下需要正确配置 Python</span><br><span>录播机在定稿之时尚未出现网页面板，亦无 GUI。不适合 *nix 用户。</span></td></tr></tbody></table></figure><hr /><h5 id='哔哩哔哩录播姬'><span>哔哩哔哩录播姬</span></h5><ol start='' ><li><p><span>从 </span><a href='https://rec.danmuji.org'><span>录播姬官网</span></a><span> 下载录播姬最新的安装包，双击后即安装到操作系统。</span></p></li><li><p><span>选择合适的 </span><strong><span>空文件夹</span></strong><span> 存储录播。我们建议您优先选择存储在固态硬盘后转移的策略。</span></p><p><img src="./images/recording/luboji-1.png" referrerpolicy="no-referrer" alt="录播姬初始化对话框"></p></li><li><p><span>添加 A-SOUL </span><a href='#成员基础信息'><span>五个账号的直播间 ID</span></a></p></li><li><p><span>参照下图进行录播机基础配置</span></p><p><img src="./images/recording/luboji-config.png" referrerpolicy="no-referrer" alt="录播姬配置"></p><ul><li><span>视频分段时间如有变化以群内再次商定的时间为准。</span></li></ul></li><li><p><span>请在开播一段时间之前保持录播姬始终开启，并在此期间尽可能保证录播用电脑的网络环境相对稳定。</span></p><p><span>您可以点击带颜色的指示器来获得详细的速度提示。</span></p><p><img src="./images/recording/luboji-mainpage.png" referrerpolicy="no-referrer" alt="录播姬主页"></p><ul><li><p><span>如果您负责二刀流：</span></p><p><span>请在您认为合适的 </span><strong><span>开始和结束</span></strong><span> 时间点击 ”剪刀“ 图标。录播姬会在不打断录播的前提下分割录播文件。</span></p><p><img src="./images/recording/luboji-cut.png" referrerpolicy="no-referrer" alt="录播姬-切片"></p></li></ul><blockquote><p><span>敬请留意：</span></p><p><span>	</span><span>哔哩哔哩直播 现在可能存在向观众提交画面时暗砍码率的问题。不管主播推流的码流多高，都会被强行压缩到大果粒水平。此时的录播姬即使速度比保持正 99% 左右也无法保证录播的画质。</span></p><p><span>	</span><span>正常情况下的原画录播应该保持在 9.5Mbps ~ 11Mbps 区间。为保证录播质量，如果你的录播姬速率始终保持在 5Mbps ~ 1Mbps 区间，请及时和群内小伙伴复核文件大小和时长。如存在录播尺寸明显过小、大量无法修正的断流，请尽快地交接当前任务给其他速率正常的小伙伴。</span></p><hr /><p><span>	</span><span>目前有且只有开播前保持监听的录播姬才能正常获得正常的 “原画” 流，其他录播项目或多或少的存在无法正确获得原画流的现象，速度始终稳定低于 3Mbps ——原因详细是什么我暂且蒙在古包里。</span></p><p><span>	</span><span>细心的朋友也会发现，我正在截图的时候速率也处于被限速状态，哈哈。😄</span></p></blockquote></li></ol><hr /><h5 id='acgnhikiblrec'><span>acgnhiki/blrec</span></h5><p><strong><span>笔者暂不推荐使用 blrec 项目进行录播。可能存在一定程度的速度不正常现象，且配置难度较大。</span></strong></p><h6 id='绿色版配置'><span>绿色版配置</span></h6><ol start='' ><li><p><span>下载 blrec 绿色版（当前最新版 </span><a href='https://github.com/acgnhiki/blrec/releases/tag/v1.5.0'><span>1.5.0</span></a><span>）</span></p><p><img src="./images/recording/blrec-releases.png" referrerpolicy="no-referrer" alt="blrec_releases"></p></li><li><p><span>解压后运行 </span><code>run.bat</code><span>。</span></p></li><li><p><span>浏览器访问 </span><a href='http://127.0.0.1:2233' target='_blank' class='url'>http://127.0.0.1:2233</a></p></li></ol><h6 id='服务器非-windows-下的设置'><span>服务器/非 Windows 下的设置</span></h6><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.58333px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 这段命令参考是针对 Debian/Ubuntu 及衍生发行版的。其他的发行版差异也不大。</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">sudo</span> apt update &amp;&amp; apt dist-upgrade</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">sudo</span> apt install python-is-python3 python3 build-essential ffmpeg</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 正确配置 Python 环境后，如下命令仅供参考，适合所有发行版。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">python <span class="cm-attribute">-m</span> pip install <span class="cm-attribute">-i</span> https://pypi.tuna.tsinghua.edu.cn/simple <span class="cm-attribute">--upgrade</span> pip</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">pip config <span class="cm-keyword">set</span> global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">pip install blrec</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 185px;"></div><div class="CodeMirror-gutters" style="display: none; height: 185px;"></div></div></div></pre><h6 id='参考的-blrec-参数设定'><span>参考的 blrec 参数设定</span></h6><p><img src="./images/recording/blrec-cfg1.png" referrerpolicy="no-referrer" alt="blrec-config1"></p><p><img src="./images/recording/blrec-cfg2.png" referrerpolicy="no-referrer" alt="blrec-config2"></p><h6 id='cookies-提取与设定'><span>Cookies 提取与设定</span></h6><blockquote><p><em><strong><span>请您注意：Cookies 是您在 哔哩哔哩 如同 账号密码+短信验证码 的凭据。</span><br><span>请务必 不要 将这些信息分享给他人，并尽可能使用低价值的小号进行付费录播工作。</span></strong></em></p><p><span>如您有组号的权限，也请不要使用组号的 Cookies 配置录播</span></p><p><span>配置无论是单直播间还是全局的 Cookies 均需要重启弹幕获取客户端，因此请确保当前无录播再进行操作。</span></p></blockquote><ol start='' ><li><span>打开浏览器的 哔哩哔哩直播 网页</span></li><li><span>按下 F12 打开 ”开发人员选项“</span></li><li><span>选择 Console / 控制台</span></li><li><span>输入 </span><code>document.cookie</code><span>，确认回车</span></li><li><span>右键复制出现的一长串文本</span></li><li><span>前往 设置 -&gt; 网络请求 -&gt; Cookie 下粘贴这个字符串。如果遇到了双引号（多发于 FireFox），还请删除。</span></li></ol><h3 id='压制'><span>压制</span></h3><h4 id='使用-handbrake'><span>使用 HandBrake</span></h4><p><span>	</span><span>HandBrake 支持 Intel/AMD/NVIDIA 的硬件加速解码。对于追求快速压制并且不想折腾 FFMpeg 的朋友可以参考使用。可以在</span><a href='https://handbrake.fr/downloads.php'><span>这里</span></a><span>下载到。</span></p><p><span>	</span><span>您可以自行配置，亦可从 附录 下载到已经配置好的预设。</span></p><h5 id='配置预设'><span>配置预设</span></h5><h6 id='导入成品预设'><span>导入成品预设</span></h6><ul><li><span>打开 HandBrake，选择源 界面点击 取消；</span></li><li><span>预设 -&gt; 从文件导入 -&gt; 选择下载的预设 JSON 文件</span></li><li><span>从 A-SOUL RECORDING ENCODE 分类选择合适的编码配置</span></li></ul><h6 id='手动配置预设'><span>手动配置预设</span></h6><ul><li><p><span>摘要 建议配置：</span></p><ul><li><span>格式 MP4</span></li><li><span>网页优化 - 勾选</span></li><li><span>音视频起始对齐 - 勾选</span></li><li><span>保留常见元数据 - 按需</span></li></ul></li><li><p><span>尺寸 建议设置：</span></p><ul><li><span>分辨率限制：按需</span></li><li><span>其他参数：按需</span></li></ul></li><li><p><span>滤镜 按需设置。</span></p></li><li><p><span>视频 建议设置：</span></p><ul><li><p><span>视频编码器：</span></p><ul><li><span>一般建议选择 H.265，编码性能更高。</span></li><li><span>建议选择 显卡加速 的编码器（Intel QSV / NVIDIA NVEnc / AMD VCE）</span></li></ul></li><li><p><span>帧率：</span></p><ul><li><span>60 / 120 FPS 按需选择。</span></li><li><span>建议选择峰值帧率，加快编码速度</span></li></ul></li><li><p><span>质量：</span></p><ul><li><p><span>建议参照下表进行平均编码数值评估：</span></p><figure><table><thead><tr><th><span>上传源(3000Kbps)</span></th><th><span>哔哩哔哩压制-4K</span></th><th><span>哔哩哔哩压制-1080P高码率/60FPS</span></th><th><span>哔哩哔哩压制-1080P</span></th></tr></thead><tbody><tr><td><span>4K 60FPS H.265</span></td><td><span>15903</span></td><td><span>4779</span></td><td><span>2390</span></td></tr><tr><td><span>4K 30FPS H.264</span></td><td><span>15916</span></td><td><span>4775</span></td><td><span>2390</span></td></tr><tr><td><span>1080P 60FPS H.265</span></td><td><span>-</span></td><td><span>4778</span></td><td><span>2390</span></td></tr><tr><td><span>1080P 60FPS H.264</span></td><td><span>-</span></td><td><span>4777</span></td><td><span>2388</span></td></tr></tbody></table></figure><p><em><span>太长不看：4K 源压制约 15900-16000；1080P 源压制约 4800-5000</span></em></p></li><li><p><span>如使用处理器编码，建议选择 二次编码。</span></p></li></ul></li></ul></li><li><p><span>音频、章节 无需设置。</span></p></li><li><p><span>字幕 </span></p><ul><li><span>根据实际情况导入 ASS 字幕/弹幕，忽略 语言，直接勾选 Burn-In（烧录）即可。 </span></li></ul></li></ul><h4 id='弹幕转换'><span>弹幕转换</span></h4><h5 id='使用-批量转换脚本基于-danmakufactory'><span>使用 批量转换脚本（基于 DanmakuFactory)</span></h5><p><span>	</span><span>脚本可以在</span><a href='./attachments/DanmakuFactory-Scripts.7z'><span>这里</span></a><span>下载到。直接将带有 .xml 弹幕文件的文件夹 / 文件拖动到批处理文件上，批处理会自动识别转换。</span></p><h5 id='使用-danmakufactory-gui'><span>使用 DanmakuFactory GUI</span></h5><ol start='' ><li><p><span>你可以在</span><a href='https://github.com/hihkm/DanmakuFactory/releases/download/v1.6/DanmakuFactory1.62_Release_GUI.zip'><span>这里</span></a><span>下载到官方版的 DanmakuFactory。</span></p></li><li><p><span>可以在解压后直接创建 </span><code>DanmakuCactoryGUIConfig.txt</code><span> 文件到 DF 目录下。</span></p></li><li><p><span>可以参考如下配置，直接替换</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.58333px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">DanmakuFactoryConfigVer:1.0;</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">resX:1920;resY:1080;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">displayarea:0.4;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">scrollarea:0.4;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">scrolltime:12;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">fixtime:5;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">density:-1;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">fontname:Microsoft YaHei;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">fontsize:45;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">opacity:128;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">outline:1;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">shadow:0;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">bold:True;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">blockR2L:False;blockL2R:False;blockTop:True;blockBtm:True;blockSpecial:False;blockColor:False;blockRepeat:False;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">statTable:False;statHistogram:False;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">showUsernames:False;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">showMsgbox:False;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">msgboxPosX:10;msgboxPosY:0;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">msgboxSizeWidth:500;msgboxSizeHeight:1080;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">msgboxFontsize:35;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">giftMinPrice:0;</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 487px;"></div><div class="CodeMirror-gutters" style="display: none; height: 487px;"></div></div></div></pre><p><span>其中字体可以选择性更换为 汉仪旗黑（</span><code>HYQiHei-75W</code><span>）、思源黑体（</span><code>SourceHanSansCN-Bold</code><span>）</span></p></li><li><p><span>打开主界面，输入需要转换的文件，点击转换即可。</span></p></li></ol><h4 id='弹幕的再处理'><span>弹幕的再处理</span></h4><h5 id='文本编辑器大法'><span>文本编辑器大法</span></h5><p><span>	</span><span>用 记事本 或 任何文本编辑器 打开生成的 .ass 文件，替换 </span><code>[V4+ Styles]</code><span> 部分如下：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="ass"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="ass"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.58333px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">[V4+ Styles]</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Style: R2L,SourceHanSansCN-Bold,45,&amp;H7FFFFFFF,&amp;H00FFFFFF,&amp;H00000000,&amp;H1E6A5149,1,0,0,0,100.00,100.00,0.00,0.00,1,0.4,0,8,0,0,0,1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Style: L2R,SourceHanSansCN-Bold,45,&amp;H7FFFFFFF,&amp;H00FFFFFF,&amp;H00000000,&amp;H1E6A5149,1,0,0,0,100.00,100.00,0.00,0.00,1,0.4,0,8,0,0,0,1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Style: TOP,SourceHanSansCN-Bold,45,&amp;H7FFFFFFF,&amp;H00FFFFFF,&amp;H00000000,&amp;H1E6A5149,1,0,0,0,100.00,100.00,0.00,0.00,1,0.4,0,8,0,0,0,1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Style: BTM,SourceHanSansCN-Bold,45,&amp;H7FFFFFFF,&amp;H00FFFFFF,&amp;H00000000,&amp;H1E6A5149,1,0,0,0,100.00,100.00,0.00,0.00,1,0.4,0,8,0,0,0,1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Style: SP,SourceHanSansCN-Bold,45,&amp;H00FFFFFF,&amp;H00FFFFFF,&amp;H00000000,&amp;H1E6A5149,1,0,0,0,100.00,100.00,0.00,0.00,1,1,0.4,7,0,0,0,1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Style: message_box,SourceHanSansCN-Bold,38,&amp;H00FFFFFF,&amp;H00FFFFFF,&amp;H00000000,&amp;H1E6A5149,1,0,0,0,100.00,100.00,0.00,0.00,1,1,0,7,0,0,0,1</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 255px;"></div><div class="CodeMirror-gutters" style="display: none; height: 255px;"></div></div></div></pre><h5 id='aegisub-修改法'><span>AegiSub 修改法</span></h5><p><span>	</span><span>用 AegiSub 打开生成的 .ass 文件，全选 - 编辑 - 边框 - 0.4</span><img src="./images/danmaku/aegisub.png" referrerpolicy="no-referrer" alt="AegiSub"></p><h3 id='切片'><span>切片</span></h3><h4 id='歌舞切片'><span>歌舞切片</span></h4><ul><li><span>可以使用 MusicTools 或能下载 LRC 歌词文本的音乐平台/工具，按照歌名下载歌词</span></li><li><span>可以使用 LrcToSrt 等转换器将 LRC 歌词转换成 SRT 字幕文件，方便 AegiSub 再处理。</span></li><li><span>可以使用 FFMpeg 或 HandBrake 压制歌舞字幕。</span></li><li><span>建议使用 AegiSub 处理字幕。</span></li></ul><hr /><ol start='' ><li><p><span>使用您准备的工具，根据歌名下载 LRC 歌词，并转换为 SRT 文件</span></p></li><li><p><span>将字幕导入 AegiSub，按照如下流程操作:</span></p><ul><li><span>颜色：白色</span></li><li><span>描边：应援色（参考 </span><a href='#成员基础信息'><span>附录 - 成员基础信息</span></a><span>）</span></li><li><span>位置：左下角，应当保持在安全线位置，保持一定间距。</span></li></ul></li><li><p><span>将字幕保存，参照 </span><a href='#手动配置预设'><span>使用 HandBrake - 手动配置预设 - 字幕</span></a><span> 导入字幕文件并烧录，开始编码。</span></p></li></ol><h4 id='一般切片'><span>一般切片</span></h4><p><span>	</span><span>具体请按照个人习惯进行字幕制作。具体版式请在美观、合理范围内自行调整。</span></p><p><span>	</span><span>压制可以参考 </span><a href='#手动配置预设'><span>使用 HandBrake - 手动配置预设 - 字幕</span></a><span> </span></p><h3 id='哔哩哔哩时间轴'><span>哔哩哔哩时间轴</span></h3><p><span>	</span><span>时间轴直接转载。转载源：贼眉鼠眼小珈乐（务必在提交时注明，在此对原作者的努力一并表示感谢）</span></p><p><span>	</span><span>使用工具（您可能需要为您的 Firefox/Edge/Chrome 安装油猴或暴力猴以运行脚本）：</span></p><ul><li><a href='https://as042971.github.io/timeline_adjustment/'><span>时间轴调整</span></a></li><li><a href='https://www.bilibili.com/read/cv14867047'><span>轴 Man 小助手</span></a></li><li><a href='https://www.bilibili.com/read/cv15346206'><span>视频笔记功能扩展</span></a></li></ul><p><span>	</span><span>如果时间足够且您愿意，可以前往 </span><a href='https://shimo.im/sheets/pmkxQeWgY0TnNPAN/RmmHI/'><span>录播信息共享平台</span></a><span> 帮助更多的一个魂们。</span></p><h2 id='3-特殊情况处置引导'><span>3 特殊情况处置引导</span></h2><h3 id='撞车'><span>撞车</span></h3><blockquote><p><span>这种处置办法仅限于遇到脑回路正常的审核。</span></p><p><span>B 站审核多了，水平参差不齐，遇到啥样的大家都不好说属于是。尽可能不要浪费时间拷打。</span></p><p><span>虽然我组的处置风格一向是”被枪毙就不发了，反正不差一个切片“，但如果恰好有一个朋友有闲，可以参照如下的撞车处置策略，以 </span><strong><span>部分</span></strong><span> 复活被枪毙的稿件。</span></p><hr /><p><span>复活处置原则：</span></p><ul><li><span>以 增强 为主，其次考虑 降低质量</span></li><li><span>可以针对自己的计算机配置进行测试，什么快用什么。</span></li><li><span>如果申诉失败，在主要工作时间请尽快回到正常任务上。</span></li></ul></blockquote><h4 id='修改稿件信息'><span>修改稿件信息</span></h4><p><span>	</span><span>主要是在 ”转载信息“ 一栏填写直播间地址后添加 </span><code>基于直播录像进行修复</code><span>。实际进行的动作如 </span><code>画质提升</code><span> 、</span><code>音质提升</code><span>  等请务必按照 </span><strong><span>实际情况</span></strong><span> 正确填写。也不要提交未经任何调整的稿件，在任何情况下恶意申诉都是不好的行为！</span></p><h4 id='画面---分辨率提升'><span>画面 - 分辨率提升</span></h4><p><span>	</span><span>可以考虑使用 </span><a href='https://github.com/nihui/realcugan-ncnn-vulkan'><span>nihui/realcugan-ncnn-vulkan</span></a><span> 对画面进行升分辨率处理。</span></p><p><span>	</span><span>如下示范命令请按需修改。示范命令假定您正确配置了 FFMpeg 和 RealCUGAN-ncnn-Vulkan 到您的环境变量。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.58333px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 开始之前请检查视频实际帧率，以 VLC/PotPlayer 的解码帧率 或 ffprobe 的结果为准。</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 本段假定您是 1080P@60fps 转换为 4K@60fps，有 NVIDIA 独立显卡。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># ====</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 音轨抽取</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">ffmpeg <span class="cm-attribute">-i</span> input.flv <span class="cm-attribute">-vn</span> <span class="cm-attribute">-acodec</span> copy audio.m4a</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 以帧为单位转换为图片</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">ffmpeg <span class="cm-attribute">-i</span> input.flv input_frames/%08d.png</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 交由 RealCUGAN 升分辨率处理</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># --</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># -s 代表放大倍数，-n 代表降噪程度。一般情况下可以考虑填写 0，拿不准主意填 -1。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 默认模型的倍数已放入下表。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">realcugan-ncnn-vulkan <span class="cm-attribute">-i</span> input_frames <span class="cm-attribute">-o</span> output_frames <span class="cm-attribute">-s</span> <span class="cm-number">2</span> <span class="cm-attribute">-n</span> <span class="cm-number">0</span> <span class="cm-attribute">-v</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 图片合成视频</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">ffmpeg <span class="cm-attribute">-framerate</span> <span class="cm-number">60</span> <span class="cm-attribute">-i</span> output_frames/%08d.png <span class="cm-attribute">-i</span> audio.m4a <span class="cm-attribute">-c</span>:a copy <span class="cm-attribute">-c</span>:v hevc_nvenc output.mp4</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 394px;"></div><div class="CodeMirror-gutters" style="display: none; height: 394px;"></div></div></div></pre><figure><table><thead><tr><th><span>Scale Level [-s]</span></th><th><span>Denoise Level [-n]</span></th></tr></thead><tbody><tr><td><span>2</span></td><td><span>-1 / 0 / 1 / 2 /3</span></td></tr><tr><td><span>3</span></td><td><span>-1 / 0 / 3</span></td></tr><tr><td><span>4</span></td><td><span>-1 / 0 / 3</span></td></tr></tbody></table></figure><h4 id='画质---帧率提升'><span>画质 - 帧率提升</span></h4><p><span>	</span><span>可以考虑使用 </span><a href='https://github.com/nihui/rife-ncnn-vulkan'><span>nihui/rife-ncnn-vulkan</span></a><span> 对画面进行插帧处理。</span></p><p><span>	</span><span>如下示范命令请按需修改。示范命令假定您正确配置了 FFMpeg 和 RIFE-ncnn-Vulkan 到您的环境变量。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.58333px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 开始之前请检查视频实际帧率，以 VLC/PotPlayer 的解码帧率 或 ffprobe 的结果为准。</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 本段假定您是 1080P@60fps 转换为 1080P@120fps，有 NVIDIA 独立显卡。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># ====</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 音轨抽取</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">ffmpeg <span class="cm-attribute">-i</span> input.flv <span class="cm-attribute">-vn</span> <span class="cm-attribute">-acodec</span> copy audio.m4a</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 以帧为单位转换为图片</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">ffmpeg <span class="cm-attribute">-i</span> input.flv input_frames/%08d.png</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 交由 RIFE 升分辨率处理</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># --</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 详细参数调整请参阅 GitHub 的 README。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">rife-ncnn-vulkan <span class="cm-attribute">-m</span> rife-v4 <span class="cm-attribute">-i</span> input_frames <span class="cm-attribute">-o</span> output_frames <span class="cm-attribute">-v</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 图片合成视频</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">ffmpeg <span class="cm-attribute">-framerate</span> <span class="cm-number">120</span> <span class="cm-attribute">-i</span> output_frames/%08d.png <span class="cm-attribute">-i</span> audio.m4a <span class="cm-attribute">-c</span>:a copy <span class="cm-attribute">-c</span>:v hevc_nvenc <span class="cm-tab" role="presentation" cm-text="	"> </span>output.mp4</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 371px;"></div><div class="CodeMirror-gutters" style="display: none; height: 371px;"></div></div></div></pre><h4 id='音频---简单修正'><span>音频 - 简单修正</span></h4><blockquote><p><span>本文中举例均以 Adobe Audition 为例。其他软件若大同小异则不另行列举。</span></p></blockquote><h5 id='标准化'><span>标准化</span></h5><p><img src="./images/enhance/audition_normalize.png" alt="audition_normalise" style="zoom: 67%;" /></p><h5 id='中置声道提取人声增强）'><span>中置声道提取（人声增强）</span></h5><p><img src="./images/enhance/audition_central-1.png" alt="audition_enh_1" style="zoom:67%;" /><img src="./images/enhance/audition_central-2.png" alt="audition_enh_2" style="zoom:67%;" /></p><h5 id='降噪'><span>降噪</span></h5><p><img src="./images/enhance/audition_nc.png" alt="audition_nc" style="zoom:67%;" /></p><h2 id='4-附录'><span>4 附录</span></h2><h3 id='成员基础信息'><span>成员基础信息</span></h3><p><del><em><span>这一部分启用了传送门，你的行动会更加迅捷。</span></em></del></p><figure><table><thead><tr><th><span>成员</span></th><th><span>直播间号</span></th><th><span>应援色（摘自萌娘百科）</span></th></tr></thead><tbody><tr><td><a href='https://space.bilibili.com/672346917'><span>向晚AvA</span></a></td><td><a href='https://live.bilibili.com/22625025'><code>22625025</code></a></td><td><font color=#9AC8E2><span>#9AC8E2</span></font></td></tr><tr><td><a href='https://'><span>贝拉Bella</span></a></td><td><a href='https://live.bilibili.com/22632424'><code>22632424</code></a></td><td><font color=#DB7D74><span>#DB7D74</span></font></td></tr><tr><td><a href='https://space.bilibili.com/351609538'><span>珈乐Carol</span></a></td><td><a href='https://live.bilibili.com/22632424'><code>22634198</code></a></td><td><font color=#B8A6D9><span>#B8A6D9</span></font></td></tr><tr><td><a href='https://space.bilibili.com/672328094'><span>嘉然Diana</span></a></td><td><a href='https://live.bilibili.com/22637261'><code>22637261</code></a></td><td><font color=#E799B0><span>#E799B0</span></font></td></tr><tr><td><a href='https://space.bilibili.com/672342685'><span>乃琳Eileen</span></a></td><td><a href='https://live.bilibili.com/22625027'><code>22625027</code></a></td><td><font color=#576690><span>#576690</span></font></td></tr><tr><td><a href='https://space.bilibili.com/703007996'><span>A-SOUL Official</span></a></td><td><a href='https://live.bilibili.com/22632157'><code>22632157</code></a></td><td><font color=#FC966E><span>#FC966E</span></font></td></tr></tbody></table></figure><h3 id='handbrake-预设'><span>HandBrake 预设</span></h3><figure><table><thead><tr><th><span>NVIDIA NVEnc</span></th><th><span>Intel QSV</span></th><th><span>CPU</span></th></tr></thead><tbody><tr><td><a href='./attachments/handbrake_presets/1080p-h265-nvenc.json'><span>1080P - H.265</span></a></td><td><a href='./attachments/handbrake_presets/1080p-h265-qsv.json'><span>1080P - H.265</span></a></td><td><a href='./attachments/handbrake_presets/1080p-h265-x265.json'><span>1080P - H.265</span></a></td></tr><tr><td><a href='./attachments/handbrake_presets/4k-h265-nvenc.json'><span>4K - H.265</span></a></td><td><a href='./attachments/handbrake_presets/4k-h265-qsv.json'><span>4K - H.265</span></a></td><td><a href='./attachments/handbrake_presets/4k-h265-nvenc.json'><span>4K - H.265</span></a></td></tr></tbody></table></figure><h3 id='一些有用的资源链接'><span>一些有用的资源链接</span></h3><ul><li><p><a href='https://gitee.com/djj45/asoul/tree/master'><span>Gitee djj45 编写的录/压/轴/投方法汇总</span></a></p></li><li><p><span>录播存档（尚未验证是否能继续使用）</span></p><blockquote><p><a href='https://gitee.com/link?target=http%3A%2F%2Fwww.zjhkn.top%3A5000%2F'><span>http://www.zjhkn.top:5000/</span></a>
+<span>账号asoul</span>
+<span>密码luboji</span></p></blockquote></li></ul><p><span>	</span></p></div></div>
+</body>
+</html>

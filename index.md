@@ -2,6 +2,8 @@
 
 ​	*最后一次更新：2022/04/03*
 
+​	*更新内容：第一次版本大改，尚处于尝试阶段，恳请各位理解。*
+
 ## 0 前言
 
 ​	感谢您参与 A-SOUL 录播姬的协同工作流程，请您在参与工作流程之前按需仔细阅读本文档。这是一份内部工作指引文档，尽管如此，您仍然可以以非商业的目的及无授权的形式任意取用。
@@ -414,6 +416,8 @@ Style: message_box,SourceHanSansCN-Bold,38,&H00FFFFFF,&H00FFFFFF,&H00000000,&H1E
 
 > 这种处置办法仅限于遇到脑回路正常的审核。
 >
+> B 站审核多了，水平参差不齐，遇到啥样的大家都不好说属于是。尽可能不要浪费时间拷打。
+>
 > 虽然我组的处置风格一向是”被枪毙就不发了，反正不差一个切片“，但如果恰好有一个朋友有闲，可以参照如下的撞车处置策略，以 **部分** 复活被枪毙的稿件。
 >
 > ---
@@ -484,6 +488,22 @@ rife-ncnn-vulkan -m rife-v4 -i input_frames -o output_frames -v
 # 图片合成视频
 ffmpeg -framerate 120 -i output_frames/%08d.png -i audio.m4a -c:a copy -c:v hevc_nvenc 	output.mp4
 ```
+
+#### 音频 - 简单修正
+
+> 本文中举例均以 Adobe Audition 为例。其他软件若大同小异则不另行列举。
+
+##### 标准化
+
+<img src="./images/enhance/audition_normalize.png" alt="audition_normalise" style="zoom: 67%;" />
+
+##### 中置声道提取（人声增强）
+
+<img src="./images/enhance/audition_central-1.png" alt="audition_enh_1" style="zoom:67%;" /><img src="./images/enhance/audition_central-2.png" alt="audition_enh_2" style="zoom:67%;" />
+
+##### 降噪
+
+<img src="./images/enhance/audition_nc.png" alt="audition_nc" style="zoom:67%;" />
 
 ## 4 附录
 

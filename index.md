@@ -1,8 +1,15 @@
 # A-SOUL 录播组协作指北
 
-​	*最后一次更新：2022/04/08
-
-​	*更新内容：添加简介快速参考。*
+>   最后一次更新：2022/04/10
+>
+>   最后一次构建：2022/04/10 由 椎名雪 手动构建
+>
+>   ------
+>
+>   更新内容：
+>
+>   -   依照[Issue I51U4B](https://gitee.com/ASoulRecChan/WorkGuide/issues/I51U4B)的意见调整，修缮简介模板。敬请参阅：[投稿信息快速参考](file:///C:/Users/ShirakamiElma/OneDrive - elmaoncloud/文档/recording_team_work_guide/index.html#投稿信息快速参考)。
+>   -   增加了一个录播下载站。敬请参阅：[一些有用的资源链接](file:///C:/Users/ShirakamiElma/OneDrive - elmaoncloud/文档/recording_team_work_guide/index.html#一些有用的资源链接)。
 
 ---
 
@@ -583,49 +590,60 @@ ffmpeg -framerate 120 -i output_frames/%08d.png -i audio.m4a -c:a copy -c:v hevc
   > [http://www.zjhkn.top:5000/](https://gitee.com/link?target=http%3A%2F%2Fwww.zjhkn.top%3A5000%2F)
   > 账号asoul
   > 密码luboji
+  >
+  > ---
+  >
+  > https://bay1st.kazenoyukue.cf/zh-CN/
+  >
+  > 风の行方 项目下的录播下载站。托管了 A-SOUL 的录播，可以用作备选下载站点。
 
-### 简介快速参考
+### 投稿信息快速参考
 
 **请自行排列组合，参考实际情况使用，请不要盲目照搬。**
 
-```
-m月d日（名字）直播录像
+**直播中来源的视频，无论是否修复、补帧，均依照 “搬运” 办理。**
 
+#### 标题模板
+
+-   录播
+
+    -   `【活动名称】直播标题（YYYY.MM.DD 直播录像）`
+    -   `【A-SOUL夜谈】直播标题（YYYY.MM.DD 直播录像）`
+    -   `【A-SOUL小剧场】直播标题（YYYY.MM.DD 直播录像）`
+    -   `【A-SOUL游戏室】直播标题（YYYY.MM.DD 直播录像）`
+    -   `【直播团员(/直播团员2)】直播标题（YYYY.MM.DD 直播录像）`
+
+-   歌舞切片
+
+    -   `【直播切片/翻唱】表演者《歌舞名称》`
+    -   `【直播切片/舞蹈】表演者《歌舞名称》`
+
+    ------
+
+    -   `【直播切片/原创舞蹈】表演者《歌舞名称》`
+    -   `【直播切片/原创曲】表演者《歌舞名称》`
+
+-   爆点切片/节目效果节选 
+
+    -   自由发挥，请 **不要** 添加 `【】` 框，以区分类型。
+
+#### 简介模板
+
+```
+YYYY.MM.DD （名字/A-SOUL夜谈/A-SOUL小剧场/A-SOUL游戏室/其他特殊直播如纪念回、生日会） 直播录像
 （直播标题）
-
 =============================================
-
-向晚大魔王
-
+向晚大魔王：https://space.bilibili.com/672346917/
 直播间：https://live.bilibili.com/22625025/
-个人主页：https://space.bilibili.com/672346917/
 
-
-
-贝拉kira
-
+贝拉kira：https://space.bilibili.com/672353429/
 直播间：https://live.bilibili.com/22632424/
-个人主页：https://space.bilibili.com/672353429/
 
-
-
-珈乐Carol
-
+珈乐Carol：https://space.bilibili.com/351609538/
 直播间：https://live.bilibili.com/22634198/
-个人主页：https://space.bilibili.com/351609538/
 
-
-
-嘉然今天吃什么
-
+嘉然今天吃什么：https://space.bilibili.com/672328094/
 直播间：https://live.bilibili.com/22637261/
-个人主页：https://space.bilibili.com/672328094/
 
-
-
-乃琳Queen
-
-直播间：https://live.bilibili.com/22625027/
-个人主页：https://space.bilibili.com/672342685/
+乃琳Queen：https://space.bilibili.com/672342685/
 ```
-

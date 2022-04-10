@@ -8,8 +8,8 @@
 >
 >   更新内容：
 >
->   -   依照[Issue I51U4B](https://gitee.com/ASoulRecChan/WorkGuide/issues/I51U4B)的意见调整，修缮简介模板。敬请参阅：[投稿信息快速参考](file:///C:/Users/ShirakamiElma/OneDrive - elmaoncloud/文档/recording_team_work_guide/index.html#投稿信息快速参考)。
->   -   增加了录播下载站。敬请参阅：[一些有用的资源链接](file:///C:/Users/ShirakamiElma/OneDrive - elmaoncloud/文档/recording_team_work_guide/index.html#一些有用的资源链接)。
+>   -   依照[Issue I51U4B](https://gitee.com/ASoulRecChan/WorkGuide/issues/I51U4B)的意见调整，修缮简介模板。敬请参阅：[投稿信息快速参考](###投稿信息快速参考)。
+>   -   增加了录播下载站。敬请参阅：[一些有用的资源链接](###一些有用的资源链接)。
 >   -   修复了部分链接不可用问题。
 
 ---

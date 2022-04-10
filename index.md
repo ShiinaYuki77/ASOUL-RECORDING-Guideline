@@ -10,6 +10,7 @@
 >
 >   -   依照[Issue I51U4B](https://gitee.com/ASoulRecChan/WorkGuide/issues/I51U4B)的意见调整，修缮简介模板。敬请参阅：[投稿信息快速参考](file:///C:/Users/ShirakamiElma/OneDrive - elmaoncloud/文档/recording_team_work_guide/index.html#投稿信息快速参考)。
 >   -   增加了录播下载站。敬请参阅：[一些有用的资源链接](file:///C:/Users/ShirakamiElma/OneDrive - elmaoncloud/文档/recording_team_work_guide/index.html#一些有用的资源链接)。
+>   -   修复了部分链接不可用问题。
 
 ---
 
@@ -583,7 +584,7 @@ ffmpeg -framerate 120 -i output_frames/%08d.png -i audio.m4a -c:a copy -c:v hevc
 
 ### 一些有用的资源链接
 
-- [Gitee djj45 编写的录/压/轴/投方法汇总](https://gitee.com/djj45/asoul/tree/master)
+- [djj45/asoul](https://github.com/djj45/asoul/tree/master)
 
 - 录播存档
 

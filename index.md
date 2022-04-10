@@ -9,7 +9,7 @@
 >   更新内容：
 >
 >   -   依照[Issue I51U4B](https://gitee.com/ASoulRecChan/WorkGuide/issues/I51U4B)的意见调整，修缮简介模板。敬请参阅：[投稿信息快速参考](file:///C:/Users/ShirakamiElma/OneDrive - elmaoncloud/文档/recording_team_work_guide/index.html#投稿信息快速参考)。
->   -   增加了一个录播下载站。敬请参阅：[一些有用的资源链接](file:///C:/Users/ShirakamiElma/OneDrive - elmaoncloud/文档/recording_team_work_guide/index.html#一些有用的资源链接)。
+>   -   增加了录播下载站。敬请参阅：[一些有用的资源链接](file:///C:/Users/ShirakamiElma/OneDrive - elmaoncloud/文档/recording_team_work_guide/index.html#一些有用的资源链接)。
 
 ---
 
@@ -585,11 +585,10 @@ ffmpeg -framerate 120 -i output_frames/%08d.png -i audio.m4a -c:a copy -c:v hevc
 
 - [Gitee djj45 编写的录/压/轴/投方法汇总](https://gitee.com/djj45/asoul/tree/master)
 
-- 录播存档（尚未验证是否能继续使用）
+- 录播存档
 
   > [http://www.zjhkn.top:5000/](https://gitee.com/link?target=http%3A%2F%2Fwww.zjhkn.top%3A5000%2F)
-  > 账号asoul
-  > 密码luboji
+  > 账号`asoul` / 密码`luboji`
   >
   > ---
   >
@@ -599,9 +598,35 @@ ffmpeg -framerate 120 -i output_frames/%08d.png -i audio.m4a -c:a copy -c:v hevc
 
 ### 投稿信息快速参考
 
-**请自行排列组合，参考实际情况使用，请不要盲目照搬。**
-
-**直播中来源的视频，无论是否修复、补帧，均依照 “搬运” 办理。**
+>   敬请注意：
+>
+>   **用投稿工具修改稿件后，过长的简介会被阉割。如果可以的话请顺手在网页端及时修改。**
+>
+>   **请自行排列组合，参考实际情况使用，请不要盲目照搬。**
+>
+>   **直播中来源的视频，无论是否修复、补帧，均依照 “搬运” 办理。**
+>
+>   ---
+>
+>   *【不属于自制】范围的例子包括不仅限于以下五点：*
+>
+>   1、无加工的纯片段截取：加工指对原片包括不仅限于添加特效包装，文字点评，改图，音轨替换，添加配音,等二次加工行为
+>
+>   2、字幕：未经版权方授权的翻译字幕不属于自制类型
+>
+>   3、录屏：对投稿人没有参与制作、编辑加工的作品进行录播
+>
+>   4、他人代投（包括授权搬运）：非原作者或其创作团队的账号在站内协助原作者进行投稿
+>
+>   5、其他低创内容
+>
+>   其他包括不仅限于例如：
+>
+>   1、自行购碟压制上传、单纯倍速播放、倒放、镜像、调色、补帧等
+>
+>   2、非官方人员或原作者参与的摄像、录制的正式LIVE现场录像视频
+>
+>   之后会根据具体情况不断补充完善规则，此规则适用于公示之后的稿件。
 
 #### 标题模板
 

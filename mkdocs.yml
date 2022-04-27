@@ -1,0 +1,55 @@
+site_name:  A-SOUL 录播姬工作知识库
+theme:
+  name: material
+  lang: zh
+  logo: /icon.png
+  favicon: /icon.png
+  features:
+    - content.code.annotate
+    - navigation.sections
+    - navigation.expand
+    - toc.follow
+  icon:
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+plugins:
+    - search
+    - awesome-pages
+extra:
+  homepage: https://asoulrecchan.gitee.io/workguide
+markdown_extensions:
+  - admonition
+  - footnotes
+  - meta
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tilde
+nav:
+  - '首页': 'index.md'
+  - 录播:
+    - 哔哩哔哩:
+      - '两种录播项目的比较': /recording/bili/compare
+      - '使用 acgnhiki/blrec 项目': /recording/bili/blrec
+      - '使用 哔哩哔哩录播姬': /recording/bili/luboji
+    - 抖音直播:
+      - '传统方法': /recording/amemv/traditional
+      - '监听脚本': /recording/amemv/script
+  - 切片:
+    - '通用字幕教程': 'cliping/general'
+    - '歌舞内容切片加字幕': 'cliping/sing_and_song'
+  - 压制:
+    - '使用 HandBrake 压制视频': 'encoding/handbrake'
+    - '使用 DanmakuFactory 转换弹幕': 'encoding/danmakufactory'

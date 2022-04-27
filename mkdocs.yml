@@ -42,12 +42,12 @@ nav:
   - '首页': 'index.md'
   - 录播:
     - 哔哩哔哩:
-      - '两种录播项目的比较': /recording/bili/compare
-      - '使用 acgnhiki/blrec 项目': /recording/bili/blrec
-      - '使用 哔哩哔哩录播姬': /recording/bili/luboji
+      - '两种录播项目的比较': recording/bili/compare
+      - '使用 acgnhiki/blrec 项目': recording/bili/blrec
+      - '使用 哔哩哔哩录播姬': recording/bili/luboji
     - 抖音直播:
-      - '传统方法': /recording/amemv/traditional
-      - '监听脚本': /recording/amemv/script
+      - '传统方法': recording/amemv/traditional
+      - '监听脚本': recording/amemv/script
   - 切片:
     - '通用字幕教程': 'cliping/general'
     - '歌舞内容切片加字幕': 'cliping/sing_and_song'

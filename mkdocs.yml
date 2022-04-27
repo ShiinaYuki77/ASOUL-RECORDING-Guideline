@@ -3,8 +3,8 @@ site_url: https://asoulrecchan.gitee.io/workguide
 theme:
   name: material
   lang: zh
-  logo: /icon.png
-  favicon: /icon.png
+  logo: icon.png
+  favicon: icon.png
   features:
     - content.code.annotate
     - navigation.sections

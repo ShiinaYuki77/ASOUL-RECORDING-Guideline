@@ -54,3 +54,6 @@ nav:
   - 压制:
     - '使用 HandBrake 压制视频': 'encoding/handbrake'
     - '使用 DanmakuFactory 转换弹幕': 'encoding/danmakufactory'
+    - '部署 FFMpeg 环境': 'encoding/ffmpeg'
+  - 速查手册:
+    - '投稿信息速查': 'qrh/description'

@@ -75,6 +75,7 @@ YYYY.MM.DD （名字/A-SOUL夜谈/A-SOUL小剧场/A-SOUL游戏室/其他特殊�
 直播间：https://live.bilibili.com/22637261/
 
 乃琳Queen：https://space.bilibili.com/672342685/
+直播间：https://live.bilibili.com/22625027/
 ```
 
 ## 成员信息
